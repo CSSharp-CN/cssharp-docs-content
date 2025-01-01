@@ -9,8 +9,8 @@ NetMessage 是 CS2 网络通信使用的一系列数据包，本质通过 Protob
 
 # 什么是 UserMessage？
 
-准确的来说，UserMessage 是 NetMessage 的一种，他通过 `CSVCMsg_UserMessage (72)` NetMessage Protobuf 发送。
-从内容看，UserMessage 主要负责游戏性的网络通信。
+准确的来说，UserMessage 是 NetMessage 中的一类 Message，在 `usermessages.proto` 文件中定义。
+从内容看，UserMessage 主要负责游戏性的网络通信（例如屏幕抖动，声音，文字提示等）。
 
 <Callout title="警告" type="warn">
   在 CounterStrikeSharp 中，NetMessage 和 UserMessage 都使用 `UserMessage` 类表示，这意味着所有 NetMessage 都可以被 CounterStrikeSharp 处理。
@@ -22,7 +22,7 @@ CS2的全 Proto 文件仓库：[https://github.com/SteamDatabase/GameTracking-CS
 
 # UserMessage 对象
 
-虽然目前的 CounterStrikeSharp 无法做到与 Protobuf 对象直接交互，但它提供了 `UserMessage` 对象，其本质是一个 Protobuf 对象，但是只能对其进行一些基础的读写操作。
+虽然目前的 CounterStrikeSharp 无法做到与 Protobuf 对象直接交互，但它提供了 `UserMessage` 对象，其本质是一个 CNetMessagePB 对象（基本就是一个 Protobuf 对象），但是只能对其进行一些基础的读写操作。
 
 ## 构造 UserMessage
 
